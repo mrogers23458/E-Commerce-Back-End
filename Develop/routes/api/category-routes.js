@@ -6,6 +6,8 @@ const { Category, Product } = require('../../models');
 router.get('/', (req, res) => {
   // find all categories
   // be sure to include its associated Products
+  const locationData = await Location.findAll();
+  res.status(200).json(locationData)
 });
 
 router.get('/:id', (req, res) => {
