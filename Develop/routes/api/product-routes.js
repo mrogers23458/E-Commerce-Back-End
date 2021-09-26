@@ -45,18 +45,18 @@ router.get('/:id', async (req, res) => {
     attributes: ['category_name']
   },{
     model: Tag,
-    attributes: ['category_name']
+    attributes: ['tag_name']
   }]})
+  console.log(productDbData)
 
   if (!productDbData) {
     res
       .status(400)
       .json('No products were found with that id')
-  } else if (productDbData) {
-    res
-      .status(200)
-      .json(productDbData)
   }
+  res
+  .status(200)
+  .json(productDbData)
   } catch (err){
     console.log(err)
   }
